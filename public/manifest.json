@@ -1,0 +1,15 @@
+{
+  "short_name": "Honey",
+  "name": "Farm HONEY with Sushiswap LP Tokens On Arbitrum",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "type": "image/png",
+      "sizes": "240x240"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
