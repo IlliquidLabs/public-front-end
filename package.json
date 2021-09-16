@@ -21,7 +21,6 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "react-tooltip": "^4.2.21",
-    "react-use": "^17.3.1",
     "styled-components": "^5.1.1",
     "typescript": "^3.9.7",
     "use-wallet": "^0.8.0",
