@@ -1,6 +1,8 @@
 import BigNumber from 'bignumber.js'
 import { ethers } from 'ethers'
 
+import { rootURL, honeyContract, vsCurrency } from '../constants/coinGeckoApi'
+
 BigNumber.config({
   EXPONENTIAL_AT: 1000,
   DECIMAL_PLACES: 80,
@@ -243,4 +245,32 @@ export const redeem = async (masterChefContract, account) => {
   } else {
     alert('pool not active')
   }
+}
+
+export const honeyPrice = () => {
+  /*
+  let response = await fetch(rootURL+honeyContract+vsCurrency)
+  if (response.status === 200) {
+    let data = await response.json()
+    return data['0xde31e75182276738b0c025daa8f80020a4f2fbfe']['usd']
+  }
+  else {
+    return 0
+  }
+  */
+ const status = response => {
+   console.log(response)
+   if (response.status === 200) {
+     return Promise.resolve(response)
+   }
+   return Promise.reject(new Error(response.statusText))
+ }
+ const json = response => response.json()
+ return fetch(rootURL+honeyContract+vsCurrency)
+  .then(status)
+  .then(json)
+  .then(data => {
+    console.log(data)
+    return data['0xde31e75182276738b0c025daa8f80020a4f2fbfe']['usd']
+  })
 }
