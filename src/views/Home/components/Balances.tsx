@@ -17,11 +17,7 @@ import useHoney from '../../../hooks/useHoney'
 import { getHoneyAddress, getHoneySupply } from '../../../honey/utils'
 import { getBalanceNumber } from '../../../utils/formatBalance'
 
-interface PendingRewardsProps {
-  currency?: 'usd' | 'honey'
-}
-
-const PendingRewards: React.FC<PendingRewardsProps> = ({ currency = 'honey' }) => {
+const PendingRewards: React.FC = () => {
   const [start, setStart] = useState(0)
   const [end, setEnd] = useState(0)
   const [scale, setScale] = useState(1)
@@ -34,11 +30,6 @@ const PendingRewards: React.FC<PendingRewardsProps> = ({ currency = 'honey' }) =
     sumEarning += new BigNumber(earning)
       .div(new BigNumber(10).pow(18))
       .toNumber()
-  }
-
-  if (currency === 'usd') {
-    sumEarning *= 0.0239486;
-    
   }
 
   const [farms] = useFarms()
@@ -65,7 +56,6 @@ const PendingRewards: React.FC<PendingRewardsProps> = ({ currency = 'honey' }) =
         display: 'inline-block',
       }}
     >
-      {currency === 'usd' ? "$" : ""}
       <CountUp
         start={start}
         end={end}
@@ -118,11 +108,6 @@ const Balances: React.FC = () => {
           Pending harvest
           <FootnoteValue>
             <PendingRewards /> HONEY
-          </FootnoteValue>
-        </Footnote>
-        <Footnote>
-          <FootnoteValue>
-            <PendingRewards currency='usd' />
           </FootnoteValue>
         </Footnote>
       </Card>
