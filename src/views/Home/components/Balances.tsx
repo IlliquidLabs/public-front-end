@@ -23,6 +23,8 @@ const PendingRewards: React.FC = () => {
   const [scale, setScale] = useState(1)
 
   const allEarnings = useAllEarnings()
+
+  
   let sumEarning = 0
   for (let earning of allEarnings) {
     sumEarning += new BigNumber(earning)
